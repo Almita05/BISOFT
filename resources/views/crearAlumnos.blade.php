@@ -12,32 +12,34 @@
         <form id="formAlumno">
           @csrf
 
-          <!-- DATOS PERSONALES -->
+          
           <h6>Datos del Alumno</h6>
+          <hr>
+          <br>
           <div class="row">
             <div class="col-md-4 mb-3">
-              <label>Nombre</label>
+              <label>Nombre<span style="color:red">*</span></label>
               <input type="text" class="form-control" name="nombre" required>
             </div>
             <div class="col-md-4 mb-3">
-              <label>Apellido Paterno</label>
+              <label>Apellido Paterno<span style="color:red">*</span></label>
               <input type="text" class="form-control" name="apellido_paterno" required>
             </div>
             <div class="col-md-4 mb-3">
-              <label>Apellido Materno</label>
+              <label>Apellido Materno<span style="color:red">*</span></label>
               <input type="text" class="form-control" name="apellido_materno" required>
             </div>
           </div>
 
           <div class="mb-3">
-            <label>Fecha de Nacimiento</label>
+            <label>Fecha de Nacimiento<span style="color:red">*</span></label>
             <input type="date" class="form-control" name="fechaNacimiento" required>
           </div>
 
           <!-- NUEVO: GENERACIÓN Y GRUPO -->
           <div class="row">
             <div class="col-md-6 mb-3">
-              <label>Generación</label>
+              <label>Generación<span style="color:red">*</span></label>
               <select class="form-control" name="generacion" required>
                 <option value="">Seleccione una generación</option>
                 <option value="">Cuadragésima cuarta</option>
@@ -47,29 +49,30 @@
             </div>
 
             <div class="col-md-6 mb-3">
-              <label>Grupo</label>
+              <label>Grupo<span style="color:red">*</span></label>
               <input type="text" class="form-control" name="grupo" placeholder="Ej. A, B, 1A" required>
             </div>
           </div>
 
-          <!-- TUTOR -->
-          <h6>Datos del Tutor</h6>
+          <br>
+          <h6>Datos del Tutor y de contacto</h6>
+          <hr>
+          <br>
+          
           <div class="row">
             <div class="col-md-6 mb-3">
-              <label>Nombre del Tutor</label>
+              <label>Nombre del Tutor<span style="color:red">*</span></label>
               <input type="text" class="form-control" name="tutor" required>
             </div>
             <div class="col-md-6 mb-3">
-              <label>Parentesco</label>
+              <label>Parentesco<span style="color:red">*</span></label>
               <input type="text" class="form-control" name="parentesco" required>
             </div>
           </div>
 
-          <!-- DIRECCIÓN -->
-          <h6>Dirección</h6>
           <div class="row">
             <div class="col-md-6 mb-3">
-              <label>Calle</label>
+              <label>Calle<span style="color:red">*</span></label>
               <input type="text" class="form-control" name="calle" required>
             </div>
             <div class="col-md-6 mb-3">
@@ -81,24 +84,22 @@
               <input type="text" class="form-control" name="localidad">
             </div>
             <div class="col-md-6 mb-3">
-              <label>Municipio</label>
+              <label>Municipio<span style="color:red">*</span></label>
               <input type="text" class="form-control" name="municipio" required>
             </div>
           </div>
 
-          <!-- CONTACTO -->
-          <h6>Contacto</h6>
           <div class="row">
             <div class="col-md-6 mb-3">
-              <label>Teléfono Tutor</label>
+              <label>Teléfono Tutor<span style="color:red">*</span></label>
               <input type="text" class="form-control" name="telefonoTutor" required>
             </div>
             <div class="col-md-6 mb-3">
-              <label>Celular Alumno</label>
+              <label>Celular Alumno<span style="color:red">*</span></label>
               <input type="text" class="form-control" name="celularAlumno" required>
             </div>
             <div class="col-md-6 mb-3">
-              <label>Correo Alumno</label>
+              <label>Correo Alumno<span style="color:red">*</span></label>
               <input type="email" class="form-control" name="correoAlumno" required>
             </div>
             <div class="col-md-6 mb-3">
@@ -106,6 +107,20 @@
               <input type="text" class="form-control" name="escuelaProcedencia">
             </div>
           </div>
+
+
+          <div class="row">
+            <div class="col-md-6 mb-3">
+                <input class="form-check-input" type="checkbox" value="" name="equivalencia" >
+              <label>Equivalencia de estudios</label>
+            </div>
+            <div class="col-md-6 mb-3">
+                <input class="form-check-input" type="checkbox" value="" name="equivalencia">
+              <label>Viene de Martínez</label>
+              
+            </div>
+          </div>
+
 
           <!-- OBSERVACIONES -->
           <div class="mb-3">

@@ -49,7 +49,7 @@
                 </span>
                 <input type="text" class="form-control" placeholder="Ingrese el alumno a buscar">
             </div>
-            <button class="btn btn-sm px-3 ms-3" style="background-color:#87CEEB; color:black;">Buscar</button>
+            <button class="btn btn-sm px-3 btn-success ms-3">Buscar</button>
         </div>
         
     </div>

@@ -51,13 +51,13 @@
             <div class="tab-pane fade show active" id="tab1">
                 <div class="row g-3">
 
-                    <div class="col-md-6"><div class="card"><div class="card-body"><h5>Matemáticas I</h5><a href="#" class="btn btn-info">Descargar</a></div></div></div>
-                    <div class="col-md-6"><div class="card"><div class="card-body"><h5>Química I</h5><a href="#" class="btn btn-info">Descargar</a></div></div></div>
-                    <div class="col-md-6"><div class="card"><div class="card-body"><h5>Geografía</h5><a href="#" class="btn btn-info">Descargar</a></div></div></div>
-                    <div class="col-md-6"><div class="card"><div class="card-body"><h5>Introducción a Ciencias Sociales I</h5><a href="#" class="btn btn-info">Descargar</a></div></div></div>
-                    <div class="col-md-6"><div class="card"><div class="card-body"><h5>Informática I</h5><a href="#" class="btn btn-info">Descargar</a></div></div></div>
-                    <div class="col-md-6"><div class="card"><div class="card-body"><h5>Lectura y Redacción I</h5><a href="#" class="btn btn-info">Descargar</a></div></div></div>
-                    <div class="col-md-6"><div class="card"><div class="card-body"><h5>Inglés I</h5><a href="#" class="btn btn-info">Descargar</a></div></div></div>
+                    <div class="col-md-6"><div class="card"><div class="card-body"><h5>Matemáticas I</h5><a href="#" class="btn" style="background-color:#87CEEB; color:black">Descargar</a></div></div></div>
+                    <div class="col-md-6"><div class="card"><div class="card-body"><h5>Química I</h5><a href="#" class="btn" style="background-color:#87CEEB; color:black">Descargar</a></div></div></div>
+                    <div class="col-md-6"><div class="card"><div class="card-body"><h5>Geografía</h5><a href="#" class="btn" style="background-color:#87CEEB; color:black">Descargar</a></div></div></div>
+                    <div class="col-md-6"><div class="card"><div class="card-body"><h5>Introducción a Ciencias Sociales I</h5><a href="#" class="btn" style="background-color:#87CEEB; color:black">Descargar</a></div></div></div>
+                    <div class="col-md-6"><div class="card"><div class="card-body"><h5>Informática I</h5><a href="#" class="btn" style="background-color:#87CEEB; color:black">Descargar</a></div></div></div>
+                    <div class="col-md-6"><div class="card"><div class="card-body"><h5>Lectura y Redacción I</h5><a href="#" class="btn" style="background-color:#87CEEB; color:black">Descargar</a></div></div></div>
+                    <div class="col-md-6"><div class="card"><div class="card-body"><h5>Inglés I</h5><a href="#" class="btn" style="background-color:#87CEEB; color:black">Descargar</a></div></div></div>
 
                 </div>
             </div>
@@ -66,13 +66,13 @@
             <div class="tab-pane fade" id="tab2">
                 <div class="row g-3">
 
-                    <div class="col-md-6"><div class="card"><div class="card-body"><h5>Matemáticas II</h5><a href="#" class="btn btn-info">Descargar</a></div></div></div>
-                    <div class="col-md-6"><div class="card"><div class="card-body"><h5>Química II</h5><a href="#" class="btn btn-info">Descargar</a></div></div></div>
-                    <div class="col-md-6"><div class="card"><div class="card-body"><h5>Biología I</h5><a href="#" class="btn btn-info">Descargar</a></div></div></div>
-                    <div class="col-md-6"><div class="card"><div class="card-body"><h5>Historia de México I</h5><a href="#" class="btn btn-info">Descargar</a></div></div></div>
-                    <div class="col-md-6"><div class="card"><div class="card-body"><h5>Informática II</h5><a href="#" class="btn btn-info">Descargar</a></div></div></div>
-                    <div class="col-md-6"><div class="card"><div class="card-body"><h5>Lectura y Redacción II</h5><a href="#" class="btn btn-info">Descargar</a></div></div></div>
-                    <div class="col-md-6"><div class="card"><div class="card-body"><h5>Inglés II</h5><a href="#" class="btn btn-info">Descargar</a></div></div></div>
+                    <div class="col-md-6"><div class="card"><div class="card-body"><h5>Matemáticas II</h5><a href="#"class="btn" style="background-color:#87CEEB; color:black">Descargar</a></div></div></div>
+                    <div class="col-md-6"><div class="card"><div class="card-body"><h5>Química II</h5><a href="#" class="btn" style="background-color:#87CEEB; color:black">Descargar</a></div></div></div>
+                    <div class="col-md-6"><div class="card"><div class="card-body"><h5>Biología I</h5><a href="#" class="btn" style="background-color:#87CEEB; color:black">Descargar</a></div></div></div>
+                    <div class="col-md-6"><div class="card"><div class="card-body"><h5>Historia de México I</h5><a href="#" class="btn" style="background-color:#87CEEB; color:black">Descargar</a></div></div></div>
+                    <div class="col-md-6"><div class="card"><div class="card-body"><h5>Informática II</h5><a href="#" class="btn" style="background-color:#87CEEB; color:black">Descargar</a></div></div></div>
+                    <div class="col-md-6"><div class="card"><div class="card-body"><h5>Lectura y Redacción II</h5><a href="#" class="btn" style="background-color:#87CEEB; color:black">Descargar</a></div></div></div>
+                    <div class="col-md-6"><div class="card"><div class="card-body"><h5>Inglés II</h5><a href="#" class="btn" style="background-color:#87CEEB; color:black">Descargar</a></div></div></div>
 
                 </div>
             </div>
