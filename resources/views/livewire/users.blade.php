@@ -83,55 +83,115 @@
     </tr>
 </thead>
        <tbody id="alumnosTable">
-</tbody>
+    </tbody>
     </table>
+    <div class="d-flex justify-content-between align-items-center mt-3">
+    <button id="prevBtn" class="btn btn-sm btn-primary">Anterior</button>
+    
+    <span id="pageInfo"></span>
+    
+    <button id="nextBtn" class="btn btn-sm btn-primary">Siguiente</button>
+</div>
 </div>
 
 <script>
 document.addEventListener("DOMContentLoaded", async () => {
     const table = document.getElementById("alumnosTable");
+    const input = document.querySelector("input");
+    const btnBuscar = document.querySelector(".btn-success");
 
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    const pageInfo = document.getElementById("pageInfo");
+
+    let alumnosGlobal = [];
+    let currentPage = 1;
+    let totalPages = 1;
+    let isSearching = false;
+    let searchText = "";
+
+  
+    async function loadAlumnos(page = 1) {
     try {
-   const response = await fetch("/alumnos/list");
-        const alumnos = await response.json();
+        const response = await fetch(`/alumnos/list?page=${page}&search=${searchText}`);
+        const result = await response.json();
 
-        table.innerHTML = ""; //limpiar
+        alumnosGlobal = result.data;
+        currentPage = result.page;
+        totalPages = result.total_pages;
 
-        alumnos.forEach(alumno => {
-            const row = `
-                <tr>
-                    <td>
-                        <span class="fw-normal">${alumno.idAlumno}</span>
-                    </td>
-
-                     <td>
-                        <span class="fw-normal">${alumno.nombre}</span>
-                    </td>
-
-
-                    <td>
-                        <span class="fw-normal">${alumno.apPaterno}</span>
-                    </td>
-                    <td>
-                        <span class="fw-normal">${alumno.apMaterno}</span>
-                    </td>
-                    <td>
-                        <span class="fw-normal">${alumno.idGeneracion}</span>
-                    </td>
-
-                    <td>
-                        <button class="btn btn-sm px-2 btn-info ms-2">👁</button>
-                        <button class="btn btn-sm px-2 btn-warning ms-2">✏</button>
-                        <button class="btn btn-sm px-2 btn-danger ms-2">🗑</button>
-                    </td>
-                </tr>
-            `;
-
-            table.innerHTML += row;
-        });
+        renderTable(alumnosGlobal);
+        updatePagination();
 
     } catch (error) {
         console.error("Error:", error);
     }
+}
+
+  
+    function renderTable(alumnos) {
+        table.innerHTML = "";
+
+        alumnos.forEach(alumno => {
+            const row = `
+                <tr>
+                    <td>${alumno.idAlumno}</td>
+                    <td>${alumno.nombre}</td>
+                    <td>${alumno.apPaterno}</td>
+                    <td>${alumno.apMaterno}</td>
+                    <td>${alumno.idGeneracion}</td>
+                    <td>
+                        <button class="btn btn-sm btn-info">👁</button>
+                        <button class="btn btn-sm btn-warning">✏</button>
+                        <button class="btn btn-sm btn-danger">🗑</button>
+                    </td>
+                </tr>
+            `;
+            table.innerHTML += row;
+        });
+    }
+
+    
+    function updatePagination() {
+        pageInfo.textContent = `Página ${currentPage} de ${totalPages}`;
+
+        prevBtn.disabled = currentPage === 1;
+        nextBtn.disabled = currentPage === totalPages;
+    }
+
+    
+    prevBtn.addEventListener("click", () => {
+        if (currentPage > 1) {
+            loadAlumnos(currentPage - 1);
+        }
+    });
+
+    nextBtn.addEventListener("click", () => {
+        if (currentPage < totalPages) {
+            loadAlumnos(currentPage + 1);
+        }
+    });
+
+
+    const normalizar = (texto) => {
+        return texto
+            .toLowerCase()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "");
+    };
+
+    
+    function buscar() {
+    searchText = input.value; 
+    currentPage = 1;
+
+    loadAlumnos(1);
+}
+
+    btnBuscar.addEventListener("click", buscar);
+    input.addEventListener("input", buscar);
+
+   
+    loadAlumnos();
 });
 </script>

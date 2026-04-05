@@ -11,27 +11,20 @@ class AlumnosController extends Controller
         return view('alumnos'); //aqui va la vista
     }
 
-    public function getAlumnos()
-    {
-        //consumir API externa
-       $response = Http::get('http://192.168.0.100:5000/alumnos');
-        $data = $response->json();
+  public function getAlumnos()
+{
+    $page = request()->query('page', 1);
+    $search = request()->query('search', '');
 
-        $alumnos = [];
+    $response = Http::get('http://192.168.0.100:5000/alumnos', [
+        'page' => $page,
+        'search' => $search
+    ]);
 
-        foreach ($data['results'] as $alumno) {
-            $detail = Http::get($alumno['url'])->json();
-
-            $alumnos[] = [
-                'idAlumno' => $detail['idAlumno'],
-                'nombre' => $detail['nombre'],
-                'apPaterno' =>  $detail['apPaterno'],
-                'apMaterno' =>  $detail['apMaterno'],
-                'fechaNacimiento' => $detail['fechaNacimiento'],
-                'idGeneracion' => $detail['idGeneracion'],
-            ];
-        }
-
-        return response()->json($alumnos);
+    if (!$response->successful()) {
+        return response()->json(['error' => 'Error al conectar con la API'], 500);
     }
+
+    return response()->json($response->json());
+}
 }
