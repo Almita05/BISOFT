@@ -1,8 +1,8 @@
 <nav class="navbar navbar-top navbar-expand navbar-dashboard navbar-dark ps-0 pe-2 pb-0">
   <div class="container-fluid px-0">
     <div class="d-flex justify-content-between w-100" id="navbarSupportedContent">
-      <div class="d-flex align-items-center">
-        <!-- Search form -->
+      <!--<div class="d-flex align-items-center">
+         Search form 
         <form class="navbar-search form-inline" id="navbar-search-main">
           <div class="input-group input-group-merge search-bar">
             <span class="input-group-text" id="topbar-addon"><svg class="icon icon-xs"
@@ -19,9 +19,9 @@
         <a href="https://themesberg.com/product/laravel/volt-admin-dashboard-template" target="_blank"><button
             class="btn mx-1 me-2 btn-secondary" type="button"><i
               class="fas fa-arrow-down mx-1"></i>Download</button></a>
-      </div>
+      </div>-->
       <!-- Navbar links -->
-      <ul class="navbar-nav align-items-center">
+      <ul class="navbar-nav align-items-center ms-auto">
         <li class="nav-item dropdown">
           <a class="nav-link text-dark notification-bell unread dropdown-toggle" data-unread-notifications="true"
             href="#" role="button" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">

@@ -24,7 +24,9 @@ use App\Http\Livewire\Transactions;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\ResetPasswordExample;
 use App\Http\Livewire\UpgradeToPro;
+use App\Http\Controllers\AlumnosController;
 use App\Http\Livewire\Users;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +53,8 @@ Route::get('/404', Err404::class)->name('404');
 Route::get('/500', Err500::class)->name('500');
 Route::get('/upgrade-to-pro', UpgradeToPro::class)->name('upgrade-to-pro');
 
+
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', Profile::class)->name('profile');
     Route::get('/profile-example', ProfileExample::class)->name('profile-example');
@@ -68,4 +72,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/forms', Forms::class)->name('forms');
     Route::get('/modals', Modals::class)->name('modals');
     Route::get('/typography', Typography::class)->name('typography');
+    Route::get('/alumnos', [AlumnosController::class, 'index']); 
+Route::get('/alumnos/list', [AlumnosController::class, 'getAlumnos']); 
 });
