@@ -52,7 +52,7 @@
           data-bs-target="#submenu-laravel" aria-expanded="true">
           <span>
             <span class="sidebar-icon"><i class="fa-solid fa-user-graduate"></i></i></span>
-            <span class="sidebar-text" style="color: #fb503b;">Alumnos</span>
+            <span class="sidebar-text" style="color:#87CEEB">Alumnos</span>
           </span>
           <span class="link-arrow"><svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg">

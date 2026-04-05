@@ -27,4 +27,10 @@ class AlumnosController extends Controller
 
     return response()->json($response->json());
 }
+
+
+public function crear()
+{
+    return view('crearAlumnos');
+}
 }

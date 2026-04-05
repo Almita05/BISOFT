@@ -73,5 +73,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/modals', Modals::class)->name('modals');
     Route::get('/typography', Typography::class)->name('typography');
     Route::get('/alumnos', [AlumnosController::class, 'index']); 
-Route::get('/alumnos/list', [AlumnosController::class, 'getAlumnos']); 
+    Route::get('/alumnos/list', [AlumnosController::class, 'getAlumnos']); 
+    Route::get('/alumnos/crear', [AlumnosController::class, 'crear'])->name('alumnos.crear');
 });
