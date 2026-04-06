@@ -5,23 +5,19 @@
         <div class="container">
             {{-- <p class="text-center"><a href="{{ route('dashboard') }}" class="text-gray-700"><i
                 class="fas fa-angle-left me-2"></i> Back to homepage</a></p> --}}
-            <div wire:ignore.self class="row justify-content-center form-bg-image"
-                data-background-lg="/assets/img/illustrations/signin.svg">
+            
                 <div class="col-12 d-flex align-items-center justify-content-center">
+                
                     <div class="bg-white shadow-soft border rounded border-light p-4 p-lg-5 w-100 fmxw-500">
                         <div class="text-center text-md-center mb-4 mt-md-0">
-                            <h1 class="mb-3 h3">Welcome back</h1>
-                            <p class="mb-0"> Create new account or
-                                <p class="mb-0">Sign in with these credentials:</p>
-                                <p class="mb-0"> Email: <strong>admin@volt.com</strong> Password:
-                                    <strong>secret</strong></p>
-
-                            </p>
+                              <img src="{{ asset('assets/img/Logo_Institucional.png') }}" alt="Logo" style="width:200px" >
+                            <h1 class="mb-3 h3">Bachillerato Tecnológico Interamericano</h1>
+                            
                         </div>
                         <form wire:submit.prevent="login" action="#" class="mt-4" method="POST">
                             <!-- Form -->
                             <div class="form-group mb-4">
-                                <label for="email">Your Email</label>
+                                <label for="email">Correo electrónico</label>
                                 <div class="input-group">
                                     <span class="input-group-text" id="basic-addon1"><svg
                                             class="icon icon-xs text-gray-600" fill="currentColor" viewBox="0 0 20 20"
@@ -41,7 +37,7 @@
                             <div class="form-group">
                                 <!-- Form -->
                                 <div class="form-group mb-4">
-                                    <label for="password">Your Password</label>
+                                    <label for="password">Contraseña</label>
                                     <div class="input-group">
                                         <span class="input-group-text" id="basic-addon2"><svg
                                                 class="icon icon-xs text-gray-600" fill="currentColor"
@@ -61,19 +57,18 @@
                                         <input wire:model="remember_me" class="form-check-input" type="checkbox"
                                             value="" id="remember">
                                         <label class="form-check-label mb-0" for="remember">
-                                            Remember me
+                                            Recuerdame
                                         </label>
                                     </div>
-                                    <div><a href="{{ route('forgot-password') }}" class="small text-right">Lost
-                                            password?</a></div>
+                                    <div><a href="{{ route('forgot-password') }}" class="small text-right">¿Olvidaste tu contraseña?</a></div>
                                 </div>
                             </div>
                             <div class="d-grid">
-                                <button type="submit" class="btn btn-gray-800">Sign in</button>
+                                <button type="submit" class="btn btn-gray-800">Iniciar sesión</button>
                             </div>
                         </form>
                         <div class="mt-3 mb-4 text-center">
-                            <span class="fw-normal">or login with</span>
+                            <span class="fw-normal">O iniciar sesión con</span>
                         </div>
                         <div class="d-flex justify-content-center my-4">
                             <a href="#" class="btn btn-icon-only btn-pill btn-outline-gray-500 me-2"
@@ -109,13 +104,12 @@
                         </div>
                         <div class="d-flex justify-content-center align-items-center mt-4">
                             <span class="fw-normal">
-                                Not registered?
-                                <a href="{{ route('register') }}" class="fw-bold">Create account</a>
+                                ¿No estás registrado?
+                                <a href="{{ route('register') }}" class="fw-bold">Crear cuenta</a>
                             </span>
                         </div>
                     </div>
                 </div>
-            </div>
         </div>
     </section>
 </main>
