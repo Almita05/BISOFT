@@ -34,7 +34,7 @@
           </a>
           <div class="dropdown-menu dropdown-menu-lg dropdown-menu-center mt-2 py-0">
             <div class="list-group list-group-flush">
-              <a href="#" class="text-center text-primary fw-bold border-bottom border-light py-3">Notifications</a>
+              <a href="#" class="text-center text-primary fw-bold border-bottom border-light py-3">Notificaciones</a>
               <a href="#" class="list-group-item list-group-item-action border-bottom">
                 <div class="row align-items-center">
                   <div class="col-auto">
@@ -151,7 +151,7 @@
               <img class="avatar rounded-circle" alt="Image placeholder" src="/assets/img/team/profile-picture-1.jpg">
               <div class="media-body ms-2 text-dark align-items-center d-none d-lg-block">
                 <span
-                  class="mb-0 font-small fw-bold text-gray-900">{{  auth()->user()->first_name ? auth()->user()->first_name . ' ' . auth()->user()->last_name : 'User Name'}}</span>
+                  class="mb-0 font-small fw-bold text-gray-900">Hola, {{  auth()->user()->first_name ? auth()->user()->first_name . ' ' . auth()->user()->last_name : 'User Name'}}</span>
               </div>
             </div>
           </a>

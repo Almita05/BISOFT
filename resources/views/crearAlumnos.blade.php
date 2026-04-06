@@ -40,17 +40,16 @@
           <div class="row">
             <div class="col-md-6 mb-3">
               <label>Generación<span style="color:red">*</span></label>
-              <select class="form-control" name="generacion" required>
-                <option value="">Seleccione una generación</option>
-                <option value="">Cuadragésima cuarta</option>
-                <option value="">Cuadragésima tercera</option>
-                <option value="">Cuadragésima segunda</option>
-              </select>
+            <select class="form-control" id="selectGeneraciones" required>
+    <option value="">Seleccione una generación</option>
+</select>
+            </select>
             </div>
 
             <div class="col-md-6 mb-3">
-              <label>Grupo<span style="color:red">*</span></label>
-              <input type="text" class="form-control" name="grupo" placeholder="Ej. A, B, 1A" required>
+              <select class="form-control" id="selectGrupos" required>
+    <option value="">Seleccione un grupo</option>
+</select>
             </div>
           </div>
 
@@ -138,3 +137,43 @@
     </div>
   </div>
 </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    fetch("/generaciones")
+        .then(res => res.json())
+        .then(data => {
+            let select = document.getElementById("selectGeneraciones");
+
+            data.forEach(gen => {
+                let option = document.createElement("option");
+                option.value = gen.id;
+                option.text = gen.nombre;
+                select.appendChild(option);
+            });
+        });
+
+    document.getElementById("selectGeneraciones").addEventListener("change", function () {
+
+        let id = this.value;
+        let selectGrupos = document.getElementById("selectGrupos");
+
+        selectGrupos.innerHTML = '<option value="">Seleccione un grupo</option>';
+
+        if (id !== "") {
+            fetch(`/grupos/${id}`)
+                .then(res => res.json())
+                .then(data => {
+                    data.forEach(grupo => {
+                        let option = document.createElement("option");
+                        option.value = grupo.id;
+                        option.text = grupo.nombre;
+                        selectGrupos.appendChild(option);
+                    });
+                });
+        }
+    });
+
+});
+</script>

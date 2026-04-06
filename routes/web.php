@@ -65,7 +65,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/reset-password-example', ResetPasswordExample::class)->name('reset-password-example');
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
     Route::get('/transactions', Transactions::class)->name('transactions');
-    Route::get('/bootstrap-tables', BootstrapTables::class)->name('bootstrap-tables');
+    //Route::get('/bootstrap-tables', BootstrapTables::class)->name('bootstrap-tables');
     Route::get('/lock', Lock::class)->name('lock');
     Route::get('/buttons', Buttons::class)->name('buttons');
     Route::get('/notifications', Notifications::class)->name('notifications');
@@ -75,4 +75,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/alumnos', [AlumnosController::class, 'index']); 
     Route::get('/alumnos/list', [AlumnosController::class, 'getAlumnos']); 
     Route::get('/alumnos/crear', [AlumnosController::class, 'crear'])->name('alumnos.crear');
+    Route::get('/generaciones', [AlumnoController::class, 'getGeneraciones']);
+    Route::get('/grupos/{id}', [AlumnoController::class, 'getGrupos']);
+    Route::get('/plan-bgne', function () {return view('planesDeEstudio');
+    Route::get('/plan-bti', function () {return view('plan-bti');
+});
+});
 });

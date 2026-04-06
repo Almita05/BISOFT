@@ -33,4 +33,22 @@ public function crear()
 {
     return view('crearAlumnos');
 }
+
+public function getGeneraciones()
+    {
+        $response = Http::get('http://192.168.0.100/generaciones');
+     if (!$response->successful()) {
+        return response()->json(['error' => 'Error al conectar con la API'], 500);
+    }
+    }
+
+    public function getGrupos($id)
+    {
+        $response = Http::get("http://192.168.0.100/grupos/$id");
+       if (!$response->successful()) {
+        return response()->json(['error' => 'Error al conectar con la API'], 500);
+    }
+    }
+
+    
 }
