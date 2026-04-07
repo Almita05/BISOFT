@@ -22,6 +22,7 @@
         <meta  property="og:description" content="Volt Laravel Admin Dashboard features dozens of UI components and a Laravel backend with Livewire & Alpine.js"></meta>
         <meta  property="og:site_name" content="Themesberg"></meta>
     @endif
+    
 
     <!-- Favicons -->
    <!-- <link rel="apple-touch-icon" href="../../assets/img/favicon/apple-touch-icon.png" sizes="180x180">

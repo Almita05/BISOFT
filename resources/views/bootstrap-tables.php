@@ -1,6 +1,4 @@
-@extends('layouts.app')
 
-@section('content')
 <title>BTI SOFT</title>
 
 <style>
@@ -294,4 +292,3 @@
 </div>
 </div>
 
-@endsection
