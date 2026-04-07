@@ -21,7 +21,7 @@
       </div>
       <div class="collapse-close d-md-none">
         <a href="#sidebarMenu" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu"
-          aria-expanded="true" aria-label="Toggle navigation">
+          aria-expanded="false" aria-label="Toggle navigation">
           <svg class="icon icon-xs" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd"
               d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
@@ -43,16 +43,16 @@
       </li>
       <li class="nav-item {{ Request::segment(1) == 'dashboard' ? 'active' : '' }}">
         <a href="/dashboard" class="nav-link">
-          <span class="sidebar-icon"> <i class="fa-solid fa-house"></i></span></span>
+          <span class="sidebar-icon"><i class="fa-solid fa-house"></i></span>
           <span class="sidebar-text">Inicio</span>
         </a>
       </li>
       <li class="nav-item">
         <span class="nav-link collapsed d-flex justify-content-between align-items-center" data-bs-toggle="collapse"
-          data-bs-target="#submenu-laravel" aria-expanded="true">
+          data-bs-target="#submenu-laravel" aria-expanded="false">
           <span>
             <span class="sidebar-icon"><i class="fa-solid fa-user-graduate"></i></i></span>
-            <span class="sidebar-text" style="color:#87CEEB">Alumnos</span>
+            <span class="sidebar-text {{ Request::is('users*') ? 'text-info' : '' }}">Alumnos</span>
           </span>
           <span class="link-arrow"><svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg">
@@ -61,7 +61,7 @@
                 clip-rule="evenodd"></path>
             </svg></span>
         </span>
-        <div class="multi-level collapse show" role="list" id="submenu-laravel" aria-expanded="false">
+        <div class="multi-level collapse {{ Request::is('users*') ? 'show' : '' }}" role="list" id="submenu-laravel" aria-expanded="false">
           <ul class="flex-column nav">
             
             <li class="nav-item {{ Request::segment(1) == 'users' ? 'active' : '' }}">
@@ -75,7 +75,7 @@
         </div>
       </li>
 
-      <li class="nav-item">
+      <li class="nav-item {{ Request::is('users*') ? 'active' : '' }}">
         <span
           class="nav-link {{ Request::segment(1) !== 'bootstrap-tables' ? 'collapsed' : '' }} d-flex justify-content-between align-items-center"
           data-bs-toggle="collapse" data-bs-target="#submenu-docentes">
@@ -90,9 +90,10 @@
                 clip-rule="evenodd"></path>
             </svg></span>
         </span>
-        <div class="multi-level collapse {{ Request::segment(1) == 'docentes' ? 'show' : '' }}" 
-     id="submenu-docentes" role="list"
-          id="submenu-app" aria-expanded="false">
+<div class="multi-level collapse {{ Request::segment(1) == 'docentes' ? 'show' : '' }}"
+     id="submenu-docentes"
+     role="list"
+     aria-expanded="false">
           <ul class="flex-column nav">
             <li class="nav-item {{ Request::is('plan-bgne') ? 'active' : '' }}">
               <a class="nav-link" href="/bootstrap-tables">
@@ -123,7 +124,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a href="https://themesberg.com/product/laravel/volt-pro-admin-dashboard-template" target="_blank" class="nav-link d-flex justify-content-between">
+        <a href="/" target="_blank" class="nav-link d-flex justify-content-between">
           <span>
             <span class="sidebar-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-spreadsheet-fill" viewBox="0 0 16 16">
@@ -169,8 +170,8 @@
                 clip-rule="evenodd"></path>
             </svg></span>
         </span>
-        <div class="multi-level collapse {{ Request::segment(1) == 'bootstrap-tables' ? 'show' : '' }}" role="list"
-          id="submenu-app" aria-expanded="false">
+        <div class="multi-level collapse {{ Request::is('users*') ? 'show' : '' }}"
+     id="submenu-tables" aria-expanded="false">
           <ul class="flex-column nav">
             <li class="nav-item {{ Request::segment(1) == 'bootstrap-tables' ? 'active' : '' }}">
               <a class="nav-link" href="/bootstrap-tables">
@@ -303,7 +304,7 @@
       
       <li class="nav-item">
         
-        <a href=""
+        <a href="/logout"
           class="btn btn-info d-flex align-items-center justify-content-center btn-upgrade-pro">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
   <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z"/>
