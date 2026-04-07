@@ -4,6 +4,7 @@
         <div class="modal-content">
 
             <div class="modal-header" style="background-color:#87CEEB; color:white;">
+                
                 <h5 class="modal-title">Nuevo Alumno</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
             </div>
