@@ -6,7 +6,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\Profile;
 use App\Http\Livewire\Users;
-use App\Http\Livewire\Transactions;
+use App\Http\Livewire\PlanesDeEstudio;
+use App\Http\Livewire\PlanesDeEstudioBTI;
+use App\Http\Livewire\Equivalencias;
+use App\Http\Livewire\Grupos;
 use App\Http\Livewire\BootstrapTables;
 use App\Http\Livewire\Components\Buttons;
 use App\Http\Livewire\Components\Forms;
@@ -75,7 +78,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/reset-password-example', ResetPasswordExample::class)->name('reset-password-example');
 
     // Componentes
-    Route::get('/transactions', Transactions::class)->name('transactions');
+    Route::get('/planes-de-estudio', PlanesDeEstudio::class)->name('planes-de-estudio');
+    Route::get('/grupos', Grupos::class)->name('grupos');
+    Route::get('/planes-bti', PlanesDeEstudioBTI::class)->name('planes-bti');
+    Route::get('/equivalencias', Equivalencias::class)->name('equivalencias');
     Route::get('/bootstrap-tables', BootstrapTables::class)->name('bootstrap-tables');
     Route::get('/buttons', Buttons::class)->name('buttons');
     Route::get('/notifications', Notifications::class)->name('notifications');

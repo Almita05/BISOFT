@@ -4,10 +4,10 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 
-class BootstrapTables extends Component
+class Grupos extends Component
 {
     public function render()
     {
-        return view('boostrap-tables');
+        return view('grupos');
     }
 }
