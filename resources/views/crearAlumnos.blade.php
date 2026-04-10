@@ -1,12 +1,12 @@
 <style>
-    .icon {
+.icon {
     transition: transform 0.3s ease;
 }
 
 
 .titulo-seccion {
     font-size: 15px;
-    font-weight: 600; 
+    font-weight: 600;
 }
 
 
@@ -28,7 +28,8 @@ button[aria-expanded="true"] .icon {
                     @csrf
 
                     <!-- DATOS ALUMNO -->
-                    <button class="btn w-100 text-start mb-2 d-flex justify-content-between align-items-center titulo-seccion" 
+                    <button
+                        class="btn w-100 text-start mb-2 d-flex justify-content-between align-items-center titulo-seccion"
                         type="button" data-bs-toggle="collapse" data-bs-target="#datosAlumno" aria-expanded="true">
 
                         <span>DATOS DEL ALUMNO</span>
@@ -62,11 +63,12 @@ button[aria-expanded="true"] .icon {
                                 required>
                         </div>
 
-                        <p id="edadAlumno"></p>
+                        <p id="edadAlumno" class="mt-2 text-primary fw-bold"></p>
                     </div>
 
                     <!-- DATOS TUTOR -->
-                    <button class="btn w-100 text-start mb-2 d-flex justify-content-between align-items-center titulo-seccion"
+                    <button
+                        class="btn w-100 text-start mb-2 d-flex justify-content-between align-items-center titulo-seccion"
                         type="button" data-bs-toggle="collapse" data-bs-target="#datosTutor" aria-expanded="true">
 
                         <span>DATOS DEL TUTOR Y DE CONTACTO</span>
@@ -131,7 +133,8 @@ button[aria-expanded="true"] .icon {
                     </div>
 
                     <!-- DATOS ACADÉMICOS -->
-                    <button class="btn w-100 text-start mb-2 d-flex justify-content-between align-items-center titulo-seccion"
+                    <button
+                        class="btn w-100 text-start mb-2 d-flex justify-content-between align-items-center titulo-seccion"
                         type="button" data-bs-toggle="collapse" data-bs-target="#datosAcademicos" aria-expanded="true">
 
                         <span>DATOS ACADÉMICOS</span>
@@ -150,7 +153,7 @@ button[aria-expanded="true"] .icon {
                         <div class="row">
                             <div class="col-md-4 mb-3">
                                 <label>C.C.T. <span style="color:red">*</span></label>
-                                <select class="form-control" id="selectGrupos" required>
+                                <select class="form-control" id="selectCCT" required>
                                     <option value="">Selecciona una opcion</option>
                                     <option value="">21PBH0353G-BTI</option>
                                     <option value="">21PBH0353G-BGNE</option>
@@ -160,7 +163,7 @@ button[aria-expanded="true"] .icon {
                             </div>
                             <div class="col-md-4 mb-3">
                                 <label>Semestre <span style="color:red">*</span></label>
-                                <select class="form-control" id="selectGrupos" required>
+                                <select class="form-control" id="selectSemestre" required>
                                     <option value="">Selecciona una opcion</option>
                                     <option value="">1ER SEMESTRE</option>
                                     <option value="">2DO SEMESTRE</option>
@@ -195,7 +198,8 @@ button[aria-expanded="true"] .icon {
                         </div>
                     </div>
 
-                    <button class="btn w-100 text-start mb-2 d-flex justify-content-between align-items-center titulo-seccion" 
+                    <button
+                        class="btn w-100 text-start mb-2 d-flex justify-content-between align-items-center titulo-seccion"
                         type="button" data-bs-toggle="collapse" data-bs-target="#cursos" aria-expanded="true">
 
                         <span>CURSOS EXTRACURRICULARES</span>
@@ -248,7 +252,6 @@ button[aria-expanded="true"] .icon {
 </div>
 
 <script>
-    
 document.addEventListener("DOMContentLoaded", function() {
 
 
@@ -286,20 +289,36 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    document.getElementById("fechaNacimiento").addEventListener("change", function() {
+    document.addEventListener("DOMContentLoaded", function () {
 
-        let fechaNacimiento = new Date(this.value);
+    const fechaInput = document.getElementById("fechaNacimiento");
+    const edadText = document.getElementById("edadAlumno");
+
+    if (!fechaInput) return;
+
+    function calcularEdad() {
+        let input = fechaInput.value;
+
+        if (!input) {
+            edadText.innerText = "";
+            return;
+        }
+
+        let fechaNacimiento = new Date(input);
         let hoy = new Date();
+
+        if (isNaN(fechaNacimiento.getTime())) {
+            edadText.innerText = "Fecha inválida";
+            return;
+        }
 
         let años = hoy.getFullYear() - fechaNacimiento.getFullYear();
         let meses = hoy.getMonth() - fechaNacimiento.getMonth();
         let dias = hoy.getDate() - fechaNacimiento.getDate();
 
-
         if (dias < 0) {
             meses--;
-            let ultimoMes = new Date(hoy.getFullYear(), hoy.getMonth(), 0);
-            dias += ultimoMes.getDate();
+            dias += new Date(hoy.getFullYear(), hoy.getMonth(), 0).getDate();
         }
 
         if (meses < 0) {
@@ -307,9 +326,11 @@ document.addEventListener("DOMContentLoaded", function() {
             meses += 12;
         }
 
-        document.getElementById("edadAlumno").innerText =
-            `Edad: ${años} años, ${meses} meses y ${dias} días`;
-    });
+        edadText.innerText = `Edad: ${años} años, ${meses} meses y ${dias} días`;
+    }
 
+    fechaInput.addEventListener("input", calcularEdad);
+    fechaInput.addEventListener("change", calcularEdad);
+});
 });
 </script>

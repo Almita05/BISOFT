@@ -83,13 +83,13 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>CLAVE DEL GRUPO</th>
-                <th>FECHA DE CREACION</th>
-                <th>FECHA DE INICIO</th>
-                <th>FECHA DE FIN</th>
-                <th>C.C.T.</th>
-                <th>TIPO DE PERIODO</th>
-                <th>ACCIONES</th>
+                <th>NOMBRE DEL DOCENTE</th>
+                <th>APELLIDO PATERNO</th>
+                <th>APELLIDO MATERNO</th>
+                <th>CORREO ELECTRÓNICO</th>
+                <th>TELÉFONO</th>
+                <th>STATUS</th>
+                <th>GRADO ESTUDIOS</th>
             </tr>
         </thead>
         <tbody id="docentesTable">
@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             const result = await response.json();
 
-            // 🔴 VALIDACIÓN CLAVE
+           
             if (!response.ok || !result.data) {
                 console.error("Error del backend:", result);
                 table.innerHTML = `<tr><td colspan="6">Error al cargar datos</td></tr>`;

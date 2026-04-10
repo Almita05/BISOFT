@@ -7,9 +7,12 @@ use Illuminate\Http\Request;
 class DocentesController extends Controller
 {
     public function index()
+
     {
         return view('livewire.docentes');
     }
+
+
 
 public function getDocentes()
 {
@@ -17,7 +20,9 @@ public function getDocentes()
         $page = request()->query('page', 1);
         $search = request()->query('search', '');
 
-        $response = Http::timeout(5)->get('http://192.168.0.100:5000/docentes', [
+         $baseUrl = config('services.api_qa.url');
+
+        $response = Http::timeout(5)->get($baseUrl . '/docentes', [
             'page' => $page,
             'search' => $search
         ]);

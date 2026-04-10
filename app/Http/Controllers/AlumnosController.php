@@ -17,7 +17,9 @@ public function getAlumnos()
         $page = request()->query('page', 1);
         $search = request()->query('search', '');
 
-        $response = Http::timeout(5)->get('http://192.168.0.100:5000/alumnos', [
+       $baseUrl = config('services.api_qa.url');
+
+        $response = Http::timeout(5)->get($baseUrl . '/alumnos', [
             'page' => $page,
             'search' => $search
         ]);
