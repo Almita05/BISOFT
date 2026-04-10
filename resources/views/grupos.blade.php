@@ -84,15 +84,16 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>CLAVE DEL GRUPO</th>
-                <th>FECHA DE CREACION</th>
+                <th>CLAVE DEL GRUPO</th>    
                 <th>FECHA DE INICIO</th>
                 <th>FECHA DE FIN</th>
                 <th>C.C.T.</th>
+                <th>PLAN DE ESTUDIOS</th>
                 <th>TIPO DE PERIODO</th>
+                <th>SEMESTRES</th>
             </tr>
         </thead>
-        <tbody id="alumnosTable">
+        <tbody id="gruposTable">
         </tbody>
     </table>
     <div class="d-flex justify-content-between align-items-center mt-3">
@@ -107,7 +108,7 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", async () => {
-    const table = document.getElementById("alumnosTable");
+    const table = document.getElementById("gruposTable");
     const input = document.querySelector("input");
     const btnBuscar = document.querySelector(".btn-success");
 
@@ -115,50 +116,45 @@ document.addEventListener("DOMContentLoaded", async () => {
     const nextBtn = document.getElementById("nextBtn");
     const pageInfo = document.getElementById("pageInfo");
 
-    let alumnosGlobal = [];
+    let gruposGlobal = [];
     let currentPage = 1;
     let totalPages = 1;
     let isSearching = false;
     let searchText = "";
 
 
-    async function loadAlumnos(page = 1) {
-        try {
-            const response = await fetch(`/alumnos/list?page=${page}&search=${searchText}`);
+async function loadGrupos() {
+    try {
+        let res = await fetch("/grupos/list?page=1&search=");
+        let data = await res.json();
 
-            const result = await response.json();
-
-            // 🔴 VALIDACIÓN CLAVE
-            if (!response.ok || !result.data) {
-                console.error("Error del backend:", result);
-                table.innerHTML = `<tr><td colspan="6">Error al cargar datos</td></tr>`;
-                return;
-            }
-
-            alumnosGlobal = result.data;
-            currentPage = result.page;
-            totalPages = result.total_pages;
-
-            renderTable(alumnosGlobal);
-            updatePagination();
-
-        } catch (error) {
-            console.error("Error:", error);
+        if (data.error) {
+            console.error("Error backend:", data);
+            return;
         }
+
+        console.log("Grupos:", data);
+
+        renderTable(data); // 👈 SOLO TABLA
+
+    } catch (err) {
+        console.error("Error de red:", err);
     }
-
-
-    function renderTable(alumnos) {
+}
+    function renderTable(grupos) {
         table.innerHTML = "";
 
-        alumnos.forEach(alumno => {
+        grupos.forEach(grupo => {
             const row = `
                 <tr>
-                    <td>${alumno.idAlumno}</td>
-                    <td>${alumno.nombre}</td>
-                    <td>${alumno.apPaterno}</td>
-                    <td>${alumno.apMaterno}</td>
-                    <td>${alumno.idGeneracion}</td>
+                    <td>${grupo.id}</td>
+                    <td>${grupo.clave}</td>
+                    <td>${grupo.fechaInicio}</td>
+                    <td>${grupo.fechaFin}</td>
+                    <td>${grupo.id_centroTrabajo}</td>
+                    <td>${grupo.id_planEstudios}</td>
+                    <td>${grupo.id_tipoPeriodo}</td>
+                    <td>${grupo.id_semestre}</td>
                     <td>
                         <button class="btn btn-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
   <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
@@ -190,13 +186,13 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     prevBtn.addEventListener("click", () => {
         if (currentPage > 1) {
-            loadAlumnos(currentPage - 1);
+            loadGrupos(currentPage - 1);
         }
     });
 
     nextBtn.addEventListener("click", () => {
         if (currentPage < totalPages) {
-            loadAlumnos(currentPage + 1);
+            loadGrupos(currentPage + 1);
         }
     });
 
@@ -213,14 +209,14 @@ document.addEventListener("DOMContentLoaded", async () => {
         searchText = input.value;
         currentPage = 1;
 
-        loadAlumnos(1);
+        loadGrupos(1);
     }
 
     btnBuscar.addEventListener("click", buscar);
     input.addEventListener("input", buscar);
 
 
-    loadAlumnos();
+    loadGrupos();
 });
 
 

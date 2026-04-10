@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Http;
 
+
 class AlumnosController extends Controller
 {
     public function index()
@@ -58,7 +59,11 @@ public function getGeneraciones()
 
     public function getGrupos($id)
     {
-        $response = Http::get("http://192.168.0.100/grupos/$id");
+       $baseUrl = config('services.api_qa.url');
+
+        $response = Http::timeout(5)->get($baseUrl . '/grupos', [
+        ]);
+
        if (!$response->successful()) {
         return response()->json(['error' => 'Error al conectar con la API'], 500);
     }

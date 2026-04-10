@@ -111,6 +111,7 @@ Route::middleware('auth')->group(function () {
       //Grupos
 
     Route::get('/grupos/crear', [GruposController::class, 'crear'])->name('grupos.crear');
+    Route::get('/grupos/list', [GruposController::class, 'getGrupos'])->name('grupos.list');
 
 
 
