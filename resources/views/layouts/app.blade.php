@@ -1,7 +1,7 @@
 <x-layouts.base>
 
 
-    @if(in_array(request()->route()->getName(), ['dashboard', 'profile', 'profile-example', 'users', 'planes-de-estudio', 'transactions','equivalencias', 'planes-bti','boostrap-tables','grupos',
+    @if(in_array(request()->route()->getName(), ['dashboard', 'profile', 'profile-example', 'users','grupos', 'planes-de-estudio', 'transactions','equivalencias', 'planes-bti','boostrap-tables','docentes',
     'buttons',
     'forms', 'modals', 'notifications', 'typography', 'upgrade-to-pro']))
 

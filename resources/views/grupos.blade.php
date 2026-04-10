@@ -1,4 +1,4 @@
-<title>Volt Laravel Dashboard - User management</title>
+
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
     <div class="d-block mb-4 mb-md-0">
         <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
@@ -13,27 +13,31 @@
                         </svg>
                     </a>
                 </li>
-                <li class="breadcrumb-item active" aria-current="page">Listado de Grupos</li>
+                <li class="breadcrumb-item active" aria-current="page">Listado de grupos</li>
             </ol>
         </nav>
-        <h2 class="h4">Listado de alumnos</h2>
+        <h2 class="h4">Listado de grupos</h2>
     </div>
     <div class="btn-toolbar mb-2 mb-md-0">
-       
-            
-            <a href="#" id="btnNuevoAlumno" class="btn" style="background-color:#87CEEB; color:black;"
-   class="btn btn-sm btn-gray-800 d-inline-flex align-items-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-plus-fill" viewBox="0 0 16 16">
-  <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
-  <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5"/>
-</svg>
-   Nuevo grupo
-</a>
-        
+
+
+        <a href="#" id="btnNuevoGrupo" class="btn" style="background-color:#87CEEB; color:black;"
+            class="btn btn-sm btn-gray-800 d-inline-flex align-items-center"><svg xmlns="http://www.w3.org/2000/svg"
+                width="16" height="16" fill="currentColor" class="bi bi-person-plus-fill" viewBox="0 0 16 16">
+                <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                <path fill-rule="evenodd"
+                    d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5" />
+            </svg>
+            Nuevo grupo
+        </a>
+
         <div class="btn-group ms-2 ms-lg-3">
-            
-            <button type="button" class="btn btn-danger"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-bar-up" viewBox="0 0 16 16">
-  <path fill-rule="evenodd" d="M8 10a.5.5 0 0 0 .5-.5V3.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 3.707V9.5a.5.5 0 0 0 .5.5m-7 2.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5"/>
-</svg> Importar grupos masivamente</button>
+
+            <button type="button" class="btn btn-danger"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                    fill="currentColor" class="bi bi-arrow-bar-up" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M8 10a.5.5 0 0 0 .5-.5V3.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 3.707V9.5a.5.5 0 0 0 .5.5m-7 2.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5" />
+                </svg> Importar grupos masivamente</button>
         </div>
     </div>
 </div>
@@ -53,14 +57,14 @@
             </div>
             <button class="btn btn-sm px-3 btn-success ms-3">Buscar</button>
         </div>
-        
+
     </div>
 </div>
 <div class="card card-body shadow border-0 table-wrapper table-responsive">
-    
-   
+
+
     <table class="table user-table table-hover align-items-center">
-       <!--  <thead>
+        <!--  <thead>
             <tr>
                 <th class="border-bottom">
                     <div class="form-check dashboard-check">
@@ -78,27 +82,26 @@
         </thead> -->
 
         <thead>
-    <tr>
-        <th>Id</th>
-        <th>Clave del grupo</th>
-        <th>Fecha de Inicio</th>
-        <th>Fecha de Fin</th>
-        <th>Modalidad</th>
-        <th>Horario</th>
-        <th>Fecha</th>
-        <th>ACCIONES</th>
-    </tr>
-</thead>
-       <tbody id="alumnosTable">
-    </tbody>
+            <tr>
+                <th>ID</th>
+                <th>CLAVE DEL GRUPO</th>
+                <th>FECHA DE CREACION</th>
+                <th>FECHA DE INICIO</th>
+                <th>FECHA DE FIN</th>
+                <th>C.C.T.</th>
+                <th>TIPO DE PERIODO</th>
+            </tr>
+        </thead>
+        <tbody id="alumnosTable">
+        </tbody>
     </table>
     <div class="d-flex justify-content-between align-items-center mt-3">
-    <button id="prevBtn" class="btn btn-sm btn-primary">Anterior</button>
-    
-    <span id="pageInfo"></span>
-    
-    <button id="nextBtn" class="btn btn-sm btn-primary">Siguiente</button>
-</div>
+        <button id="prevBtn" class="btn btn-sm btn-primary">Anterior</button>
+
+        <span id="pageInfo"></span>
+
+        <button id="nextBtn" class="btn btn-sm btn-primary">Siguiente</button>
+    </div>
 </div>
 <div id="contenedorModal"></div>
 
@@ -118,25 +121,33 @@ document.addEventListener("DOMContentLoaded", async () => {
     let isSearching = false;
     let searchText = "";
 
-  
+
     async function loadAlumnos(page = 1) {
-    try {
-        const response = await fetch(`/alumnos/list?page=${page}&search=${searchText}`);
-        const result = await response.json();
+        try {
+            const response = await fetch(`/alumnos/list?page=${page}&search=${searchText}`);
 
-        alumnosGlobal = result.data;
-        currentPage = result.page;
-        totalPages = result.total_pages;
+            const result = await response.json();
 
-        renderTable(alumnosGlobal);
-        updatePagination();
+            // 🔴 VALIDACIÓN CLAVE
+            if (!response.ok || !result.data) {
+                console.error("Error del backend:", result);
+                table.innerHTML = `<tr><td colspan="6">Error al cargar datos</td></tr>`;
+                return;
+            }
 
-    } catch (error) {
-        console.error("Error:", error);
+            alumnosGlobal = result.data;
+            currentPage = result.page;
+            totalPages = result.total_pages;
+
+            renderTable(alumnosGlobal);
+            updatePagination();
+
+        } catch (error) {
+            console.error("Error:", error);
+        }
     }
-}
 
-  
+
     function renderTable(alumnos) {
         table.innerHTML = "";
 
@@ -168,7 +179,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
     }
 
-    
+
     function updatePagination() {
         pageInfo.textContent = `Página ${currentPage} de ${totalPages}`;
 
@@ -176,7 +187,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         nextBtn.disabled = currentPage === totalPages;
     }
 
-    
+
     prevBtn.addEventListener("click", () => {
         if (currentPage > 1) {
             loadAlumnos(currentPage - 1);
@@ -197,26 +208,26 @@ document.addEventListener("DOMContentLoaded", async () => {
             .replace(/[\u0300-\u036f]/g, "");
     };
 
-    
-    function buscar() {
-    searchText = input.value; 
-    currentPage = 1;
 
-    loadAlumnos(1);
-}
+    function buscar() {
+        searchText = input.value;
+        currentPage = 1;
+
+        loadAlumnos(1);
+    }
 
     btnBuscar.addEventListener("click", buscar);
     input.addEventListener("input", buscar);
 
-   
+
     loadAlumnos();
 });
 
 
-document.getElementById("btnNuevoAlumno").addEventListener("click", function(e) {
+document.getElementById("btnNuevoGrupo").addEventListener("click", function(e) {
     e.preventDefault();
 
-    fetch("{{ route('alumnos.crear') }}")
+    fetch("{{ route('grupos.crear') }}")
         .then(res => {
             if (!res.ok) throw new Error("Error en servidor");
             return res.text();
@@ -231,7 +242,7 @@ document.getElementById("btnNuevoAlumno").addEventListener("click", function(e) 
 
             contenedor.innerHTML = html;
 
-            let modal = new bootstrap.Modal(document.getElementById('modalAlumno'));
+            let modal = new bootstrap.Modal(document.getElementById('modalGrupo'));
             modal.show();
         })
         .catch(err => console.error(err));

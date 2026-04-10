@@ -4,9 +4,10 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 
-class Grupos extends Component
+class Docentes extends Component
 {
     public function render()
     {
-        return view('grupos');}
+        return view('livewire.docentes');
+    }
 }

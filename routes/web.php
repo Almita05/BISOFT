@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 // Livewire
 use App\Http\Livewire\Dashboard;
+use App\Http\Livewire\Docentes;
 use App\Http\Livewire\Profile;
 use App\Http\Livewire\Users;
 use App\Http\Livewire\PlanesDeEstudio;
@@ -36,7 +37,8 @@ use App\Http\Livewire\ResetPasswordExample;
 
 // Controllers
 use App\Http\Controllers\AlumnosController;
-use App\Http\Controllers\AlumnoController; // 👈 ESTE FALTABA
+use App\Http\Controllers\GruposController; 
+use App\Http\Controllers\DocentesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,6 +72,7 @@ Route::middleware('auth')->group(function () {
 
     // Usuarios
     Route::get('/users', Users::class)->name('users');
+    Route::get('/docentes', Docentes::class)->name('docentes');
 
     // Ejemplos
     Route::get('/login-example', LoginExample::class)->name('login-example');
@@ -79,9 +82,9 @@ Route::middleware('auth')->group(function () {
 
     // Componentes
     Route::get('/planes-de-estudio', PlanesDeEstudio::class)->name('planes-de-estudio');
-    Route::get('/grupos', Grupos::class)->name('grupos');
     Route::get('/planes-bti', PlanesDeEstudioBTI::class)->name('planes-bti');
     Route::get('/equivalencias', Equivalencias::class)->name('equivalencias');
+    Route::get('/grupos', Grupos::class)->name('grupos');
     Route::get('/bootstrap-tables', BootstrapTables::class)->name('bootstrap-tables');
     Route::get('/buttons', Buttons::class)->name('buttons');
     Route::get('/notifications', Notifications::class)->name('notifications');
@@ -92,14 +95,29 @@ Route::middleware('auth')->group(function () {
     // Lock
     Route::get('/lock', Lock::class)->name('lock');
 
-    // 🎓 Alumnos
+    //Alumnos
     Route::get('/alumnos', [AlumnosController::class, 'index'])->name('alumnos.index');
     Route::get('/alumnos/list', [AlumnosController::class, 'getAlumnos'])->name('alumnos.list');
     Route::get('/alumnos/crear', [AlumnosController::class, 'crear'])->name('alumnos.crear');
 
+
+
+    //Docentes
+    Route::get('/docentes/list', [DocentesController::class, 'getDocentes'])->name('docentes.list');
+    Route::get('/docentes/crear', [DocentesController::class, 'crear'])->name('docentes.crear');
+
+
+
+      //Grupos
+
+    Route::get('/grupos/crear', [GruposController::class, 'crear'])->name('grupos.crear');
+
+
+
+
     // Datos dinámicos
     Route::get('/generaciones', [AlumnoController::class, 'getGeneraciones'])->name('generaciones');
-    Route::get('/grupos/{id}', [AlumnoController::class, 'getGrupos'])->name('grupos');
+    //Route::get('/grupos/{id}', [AlumnoController::class, 'getGrupos'])->name('grupos');
 
 
 });
